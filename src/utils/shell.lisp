@@ -135,6 +135,7 @@
 
 #-ros.init
 (defun precommand-options ()
+  #+abcl '("--noinform" "--noinit")
   #+abcl `("-jar" ,(uiop:native-namestring
                     (first (pathname-device ext:*lisp-home*))))
 
@@ -145,7 +146,7 @@
   #+cmu '("-noinit")
   #+ecl '("-norc")
   #+clasp '("--noinform" "--norc" "--non-interactive")
-  #+abcl '("--noinform" "--noinit"))
+  )
 
 #+ros.init
 (defun postcommand-options () nil)
